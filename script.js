@@ -22,11 +22,12 @@ $(document).ready(() => {
             const baths = apt.Baths;
             const sqft = apt.MinimumSQFT + "-" + apt.MaximumSQFT;
             const rent = "$" + apt.MinimumRent + "- $" + apt.MaximumRent;
-            const plan = "<img src=https://cdn.rentcafe.com/dmslivecafe/2/70799/" + apt.FloorplanImageName + ">";
+            const plan = "<img src=https://cdn.rentcafe.com/dmslivecafe/2/70799/" + apt.FloorplanImageName + " class='img-fluid'>";
 
-            const aptLi = "<div class='row'>" + name + "</div><div class='row'>" + plan + "</div><div class='row'>Beds: " + 
+            const aptLi = "<div class='card shadow p-3 mb-5 bg-white rounded'><div class='row border-bottom'><h1 class='text-center'>" + 
+            name + "</h1></div><div class='row'><div class='col-md-8'>" + plan + "</div><div class='col-md-4 details'><div class='row'>Beds: " + 
             beds + "</div><div class='row'>Baths: " + baths + "</div><div class='row'>SqFt: " + 
-            sqft + "</div><div class='row'>Rent: " + rent + "</div><br /><br />";
+            sqft + "</div><div class='row'>Rent: " + rent + "</div></div></div></div><br /><br />";
             
             aptEl.append(aptLi)
 
