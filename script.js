@@ -8,8 +8,10 @@ $(document).ready(() => {
     }).then((res) => {
         const aptEl = $("#content")
 
-        const result = JSON.parse(res);
+        var result = JSON.parse(res);
         console.log(result)
+
+        // var beds= aptArray.beds
 
         var aptArray = result.map((apt) => {
 
@@ -38,30 +40,22 @@ $(document).ready(() => {
             if (availability > 0) {
                 aptEl.append(aptLi);
             }
-            // if studio box is checked
-            // if () {
-            //     aptEl.append(aptLi);
-            // }
-            // //if 1 bedroom box is checked
-            // if () {
-            //     aptEl.append(aptLi);
-            // }
-            // //if 2 bedroom box is checked
-            // if () {
-            //     aptEl.append(aptLi);
-            // }
 
             return {
-                name: apt.FloorplanName,
-                beds: apt.Beds,
-                baths: apt.Baths,
-                sqft: apt.MinimumSQFT + "-" + apt.MaximumSQFT,
-                rent: "$" + apt.MinimumRent + "-$" + apt.MaximumRent,
-                plan: "<img src=https://cdn.rentcafe.com/dmslivecafe/2/70799/" + apt.FloorplanImageName + ">",
-                availability: apt.AvailableUnitsCount
+                name: name,
+                beds: beds,
+                baths: baths,
+                sqft: sqft,
+                rent: rent,
+                plan: plan,
+                availability: availability
             }
-
         })
+        console.log(aptArray)
+
+        const bedrooms = getSelectedCheckboxValues('bedroom');
+        console.log(bedrooms);
+
         function getSelectedCheckboxValues(name) {
             const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
             let values = [];
@@ -70,11 +64,17 @@ $(document).ready(() => {
             });
             return values;
         }
-        
+
         const btn = document.querySelector('#btn');
         btn.addEventListener('click', (event) => {
-            //change this to a filter instead of an alert but it is now recognising if the boxes are checked
-            alert(getSelectedCheckboxValues('beds'));
+            console.log("This is running.")
+            
+
+            // if (bedrooms === aptArray.beds) {
+            //     aptEl.append(aptLi);
+            // }
+
+
         });
     });
 
