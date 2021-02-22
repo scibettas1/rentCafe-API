@@ -9,7 +9,7 @@ $(document).ready(() => {
         const aptEl = $("#content")
 
         var result = JSON.parse(res);
-        console.log(result)
+        //console.log(result)
 
         var aptArray = result.map((apt) => {
 
@@ -39,25 +39,6 @@ $(document).ready(() => {
                 aptEl.append(aptLi);
             }
 
-            //This only displays units that are checked in the boxes. Work in progress.
-            const btn = document.querySelector('#btn');
-            btn.addEventListener('click', (event) => {
-                console.log("This is running.")
-                const bedrooms = getSelectedCheckboxValues('bedroom');
-                console.log(bedrooms);
-    
-                if (bedrooms !== "studio") {
-                    aptLi.classList.add("hide");
-                }
-                if (bedrooms !== "1") {
-                    aptLi.classList.add("hide");
-                }
-                if (bedrooms !== "2") {
-                    aptLi.classList.add("hide");
-                }
-    
-            });
-
             return {
                 name: name,
                 beds: beds,
@@ -80,23 +61,23 @@ $(document).ready(() => {
             return values;
         }
 
-        // const btn = document.querySelector('#btn');
-        // btn.addEventListener('click', (event) => {
-        //     console.log("This is running.")
-        //     const bedrooms = getSelectedCheckboxValues('bedroom');
-        //     console.log(bedrooms);
+        const btn = document.querySelector('#btn');
+        btn.addEventListener('click', (event) => {
+            console.log("This is running.")
+            const bedrooms = getSelectedCheckboxValues('bedroom');
+            console.log(bedrooms);
 
-        //     if (bedrooms !== "studio") {
-        //         aptLi.classList.add("hide")
-        //     }
-        //     if (bedrooms !== "1") {
-        //         aptLi.classList.add("hide")
-        //     }
-        //     if (bedrooms !== "2") {
-        //         aptLi.classList.add("hide")
-        //     }
+            //This filters and displays units that are checked in the boxes. Work in progress.
+            for (var i ="0"; i < bedrooms.length; i++) {
+                var aptFilter = aptArray.filter(apt => apt.beds == bedrooms[i]);
+                console.log(aptFilter);
+                console.log(bedrooms[i]);
+            };
+            var newArray = aptFilter.concat();
+            console.log(newArray)
+            
 
-        // });
+        });
     });
 
 });
