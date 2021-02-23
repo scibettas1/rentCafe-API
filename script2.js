@@ -11,7 +11,7 @@ $(document).ready(() => {
     }).then((res) => {
         const aptEl = $("#content");
         const btn = $('#btn');
-        const modalPlan = $("#plan")
+        const modalPlan = $("#modal")
 
         const result = JSON.parse(res);
         //console.log(result)
@@ -52,16 +52,21 @@ $(document).ready(() => {
             const availability = apt.availability;
             const url = apt.url;
 
-            const aptLi = "<div class='border-bottom' id='aptLi'><div class='row'><div class='col-md-2'>" +
+            const aptLi = "<div class='border-bottom' id='aptLi'><div class='row details'><div class='col-md-2'>" +
                 name + "</div><div class='col-md-2'>" + beds + "/" + baths + "</div><div class='col-md-2'>" +
-                sqft + "</div><div class='col-md-2'>" + rent + 
-                "</div><div class='col-md-2'><button type='button' data-toggle='modal' data-target='#floorplanModal' class='float-left btn btn-light'>VIEW</button></div><div class='col-md-2'><a href=" +
-                url + " target='_blank'><button class='float-left btn btn-light'>APPLY NOW</button></a></div></div></div>";
+                sqft + "</div><div class='col-md-2'>" + rent +
+                "</div><div class='col-md-2'><button type='button' data-toggle='modal' data-target='#" + name + "' class='float-left btn btn-secondary'>VIEW</button></div><div class='col-md-2'><a href=" +
+                url + " target='_blank'><button class='float-left btn btn-secondary'>APPLY NOW</button></a></div></div></div>";
+
+            const modal = "<div class='modal fade' id=" + name + " tabindex='-1' role='dialog' aria-hidden='true'><div class='modal-dialog modal-dialog-centered' role='document'><div class='modal-content'><div class='modal-header'><h5 class='modal-title'>" +
+                name + "</h5><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div><div class='modal-body' id='plan'>" +
+                plan + "</div><div class='modal-footer'><button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button><a href=" +
+                url + " target='_blank'><button type='button' class='btn btn-secondary' id='apply'>Apply Now</button></a></div></div></div></div>"
 
             // This only displays units if they are available
             if (availability > 0) {
                 aptEl.append(aptLi);
-                modalPlan.append(plan)
+                modalPlan.append(modal)
             }
         });
 
@@ -90,7 +95,7 @@ $(document).ready(() => {
 
             var filterArray = aptFilter0.concat(aptFilter1, aptFilter2);
 
-            for (var i = "0" ; i < aptArray.length; i++) {
+            for (var i = "0"; i < aptArray.length; i++) {
                 $("#aptLi").remove();
             }
 
@@ -105,11 +110,11 @@ $(document).ready(() => {
                 const availability = apt.availability;
                 const url = apt.url;
 
-                const aptLi = "<div class='card shadow p-3 mb-5 bg-white rounded' id='aptLi'><div class='row border-bottom'><h1 class='text-center'>" +
-                    name + "</h1></div><div class='row'><div class='col-md-8'>" + plan + "</div><div class='col-md-4 details'><div class='row'>Beds: " +
-                    beds + "</div><div class='row'>Baths: " + baths + "</div><div class='row'>SqFt: " +
-                    sqft + "</div><div class='row'>Rent: " + rent + "</div><div class='row'><a href=" +
-                    url + " target='_blank'><button class='float-left btn btn-light'>APPLY NOW</button></a></div></div></div></div>";
+                const aptLi = "<div class='border-bottom' id='aptLi'><div class='row details'><div class='col-md-2'>" +
+                    name + "</div><div class='col-md-2'>" + beds + "/" + baths + "</div><div class='col-md-2'>" +
+                    sqft + "</div><div class='col-md-2'>" + rent +
+                    "</div><div class='col-md-2'><button type='button' data-toggle='modal' data-target='#floorplanModal' class='float-left btn btn-secondary'>VIEW</button></div><div class='col-md-2'><a href=" +
+                    url + " target='_blank'><button class='float-left btn btn-secondary'>APPLY NOW</button></a></div></div></div>";
 
                 // This only displays units if they are available
                 if (availability > 0) {
