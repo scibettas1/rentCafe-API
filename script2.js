@@ -54,8 +54,9 @@ $(document).ready(() => {
 
             const aptLi = "<div class='border-bottom' id='aptLi'><div class='row details'><div class='col-md-2'>" +
                 name + "</div><div class='col-md-2'>" + beds + "/" + baths + "</div><div class='col-md-2'>" +
-                sqft + "</div><div class='col-md-2'>" + rent +
-                "</div><div class='col-md-2'><button type='button' data-toggle='modal' data-target='#" + name + "' class='float-left btn btn-secondary'>VIEW</button></div><div class='col-md-2'><a href=" +
+                sqft + "</div><div class='col-md-2'>" + 
+                rent + "</div><div class='col-md-2'><button type='button' data-toggle='modal' data-target='#" + 
+                name + "' class='float-left btn btn-secondary'>VIEW</button></div><div class='col-md-2'><a href=" +
                 url + " target='_blank'><button class='float-left btn btn-secondary'>APPLY NOW</button></a></div></div></div>";
 
             const modal = "<div class='modal fade' id=" + name + " tabindex='-1' role='dialog' aria-hidden='true'><div class='modal-dialog modal-dialog-centered' role='document'><div class='modal-content'><div class='modal-header'><h5 class='modal-title'>" +
@@ -112,8 +113,9 @@ $(document).ready(() => {
 
                 const aptLi = "<div class='border-bottom' id='aptLi'><div class='row details'><div class='col-md-2'>" +
                     name + "</div><div class='col-md-2'>" + beds + "/" + baths + "</div><div class='col-md-2'>" +
-                    sqft + "</div><div class='col-md-2'>" + rent +
-                    "</div><div class='col-md-2'><button type='button' data-toggle='modal' data-target='#floorplanModal' class='float-left btn btn-secondary'>VIEW</button></div><div class='col-md-2'><a href=" +
+                    sqft + "</div><div class='col-md-2'>" + 
+                    rent + "</div><div class='col-md-2'><button type='button' data-toggle='modal' data-target='#" +
+                    name + "' class='float-left btn btn-secondary'>VIEW</button></div><div class='col-md-2'><a href=" +
                     url + " target='_blank'><button class='float-left btn btn-secondary'>APPLY NOW</button></a></div></div></div>";
 
                 // This only displays units if they are available
