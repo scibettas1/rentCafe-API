@@ -1,2 +1,11 @@
 # rentCafe-API
-successful ajax call to the RentCafe API and prinetd response to the page
+
+Technologies used:
+
+Bootstrap
+JavaScript
+jQuery
+Rent Cafe API
+
+
+Parses and renders information from the Rent Cafe API. Ability to search available apartements by number of bedrooms.
