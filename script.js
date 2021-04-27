@@ -20,8 +20,10 @@ $(document).ready(() => {
 
             if (apt.Beds == 0) {
                 var beds = "Studio";
+                var netRent = (Math.round((apt.MaximumRent*12-apt.MaximumRent*4)/12))
             } else {
                 var beds = apt.Beds;
+                var netRent = (Math.round((apt.MaximumRent*26-apt.MaximumRent*2)/26))
             }
 
             const availability = JSON.parse(apt.AvailableUnitsCount);
@@ -31,10 +33,11 @@ $(document).ready(() => {
                 beds: beds,
                 baths: apt.Baths,
                 sqft: apt.MinimumSQFT + "-" + apt.MaximumSQFT,
-                rent: "$" + apt.MinimumRent + "-$" + apt.MaximumRent,
+                rent: "$" + apt.MinimumRent, //+ "-$" + apt.MaximumRent,
                 plan: "<img src=" + apt.FloorplanImageURL + " class='img-fluid'>",
                 availability: availability,
-                url: apt.AvailabilityURL
+                url: apt.AvailabilityURL,
+                netRent: "$" + netRent
             }
         });
 
@@ -46,7 +49,7 @@ $(document).ready(() => {
             const beds = apt.beds;
             const baths = apt.baths;
             const sqft = apt.sqft;
-            const rent = apt.rent;
+            const rent = apt.netRent;
             const plan = apt.plan;
             const availability = apt.availability;
             const url = apt.url;
