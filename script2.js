@@ -2,8 +2,10 @@
 $(document).ready(() => {
 
     $.ajax({
+        //Dey & Bergen API that would be considered proprietary
+         url: "https://api.rentcafe.com/rentcafeapi.aspx?requestType=floorplan&apiToken=8a92be8b-6c61-4be5-983d-547c0c68c544&VoyagerPropertyCode=dey",
         //One Ten API that would be considered proprietary
-        url: "https://api.rentcafe.com/rentcafeapi.aspx?requestType=floorplan&apiToken=a1599208-f362-437e-a0a5-71d260bcd755&VoyagerPropertyCode=oneten",
+        // url: "https://api.rentcafe.com/rentcafeapi.aspx?requestType=floorplan&apiToken=a1599208-f362-437e-a0a5-71d260bcd755&VoyagerPropertyCode=oneten",
         //Sample API provided in RentCafe's Documentaion
         //url: "https://api.rentcafe.com/rentcafeapi.aspx?requestType=floorplan&apiToken=ODAxNw%3d%3d-0DHk4ex%2bpOU%3d&VoyagerPropertyCode=resca02",
         method: "GET",

@@ -2,8 +2,10 @@
 $(document).ready(() => {
 
     $.ajax({
+        //Dey & Bergen API that would be considered proprietary
+        url: "https://api.rentcafe.com/rentcafeapi.aspx?requestType=floorplan&apiToken=8a92be8b-6c61-4be5-983d-547c0c68c544&VoyagerPropertyCode=dey",
         //One Ten API that would be considered proprietary
-        url: "https://api.rentcafe.com/rentcafeapi.aspx?requestType=floorplan&apiToken=a1599208-f362-437e-a0a5-71d260bcd755&VoyagerPropertyCode=oneten",
+        // url: "https://api.rentcafe.com/rentcafeapi.aspx?requestType=floorplan&apiToken=a1599208-f362-437e-a0a5-71d260bcd755&VoyagerPropertyCode=oneten",
         //Sample API provided in RentCafe's Documentaion
         //url: "https://api.rentcafe.com/rentcafeapi.aspx?requestType=floorplan&apiToken=ODAxNw%3d%3d-0DHk4ex%2bpOU%3d&VoyagerPropertyCode=resca02",
         method: "GET",
@@ -20,10 +22,10 @@ $(document).ready(() => {
 
             if (apt.Beds == 0) {
                 var beds = "Studio";
-                var netRent = (Math.round((apt.MaximumRent*12-apt.MaximumRent*4)/12))
+                var netRent = (Math.round((apt.MaximumRent * 12 - apt.MaximumRent * 4) / 12))
             } else {
                 var beds = apt.Beds;
-                var netRent = (Math.round((apt.MaximumRent*26-apt.MaximumRent*2)/26))
+                var netRent = (Math.round((apt.MaximumRent * 26 - apt.MaximumRent * 2) / 26))
             }
 
             const availability = JSON.parse(apt.AvailableUnitsCount);
@@ -91,7 +93,7 @@ $(document).ready(() => {
 
             var filterArray = aptFilter0.concat(aptFilter1, aptFilter2);
 
-            for (var i = "0" ; i < aptArray.length; i++) {
+            for (var i = "0"; i < aptArray.length; i++) {
                 $("#aptLi").remove();
             }
 
